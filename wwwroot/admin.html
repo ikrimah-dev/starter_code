@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Management</title>
+</head>
+<body>
+
+    <h1>Admin Management</h1>
+
+    <p>
+        This page allows administrators to manage organisers, events,
+        and comments. For now these forms are static. Later, JavaScript
+        will validate the input and send POST requests to the API.
+    </p>
+
+    <hr>
+
+    <!-- 1. Create new event organiser -->
+    <h2>Create New Event Organiser</h2>
+
+    <form id="create-organiser-form" action="#" method="post">
+        <div>
+            <label for="organiserName">Organiser name:</label><br>
+            <input type="text"
+                   id="organiserName"
+                   name="organiserName"
+                   required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="organiserEmail">Organiser email:</label><br>
+            <input type="email"
+                   id="organiserEmail"
+                   name="organiserEmail"
+                   required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="organiserPhone">Organiser phone:</label><br>
+            <input type="tel"
+                   id="organiserPhone"
+                   name="organiserPhone">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="organiserDescription">Organiser description:</label><br>
+            <textarea id="organiserDescription"
+                      name="organiserDescription"
+                      rows="4"
+                      cols="40"></textarea>
+        </div>
+
+        <br>
+
+        <button type="submit">Create Organiser</button>
+    </form>
+
+    <hr>
+
+    <!-- 2. Create new event -->
+    <h2>Create New Event</h2>
+
+    <form id="create-event-form" action="#" method="post">
+        <div>
+            <label for="eventTitle">Event title:</label><br>
+            <input type="text"
+                   id="eventTitle"
+                   name="eventTitle"
+                   required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="eventDate">Event date:</label><br>
+            <input type="date"
+                   id="eventDate"
+                   name="eventDate"
+                   required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="eventTime">Event time:</label><br>
+            <input type="time"
+                   id="eventTime"
+                   name="eventTime">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="eventLocation">Location:</label><br>
+            <input type="text"
+                   id="eventLocation"
+                   name="eventLocation"
+                   required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="eventCategory">Category:</label><br>
+            <input type="text"
+                   id="eventCategory"
+                   name="eventCategory">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="eventPrice">Ticket price:</label><br>
+            <input type="number"
+                   id="eventPrice"
+                   name="eventPrice"
+                   step="0.01">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="eventOrganiserId">Organiser ID:</label><br>
+            <input type="text"
+                   id="eventOrganiserId"
+                   name="eventOrganiserId">
+        </div>
+
+        <br>
+
+        <button type="submit">Create Event</button>
+    </form>
+
+    <hr>
+
+    <!-- 3. Add new comment to existing event -->
+    <h2>Add New Comment To Existing Event</h2>
+
+    <form id="add-comment-form" action="#" method="post">
+        <div>
+            <label for="commentEventId">Event ID:</label><br>
+            <input type="text"
+                   id="commentEventId"
+                   name="commentEventId"
+                   required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="commentAuthor">Your name:</label><br>
+            <input type="text"
+                   id="commentAuthor"
+                   name="commentAuthor"
+                   required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="commentRating">Rating (1 to 5):</label><br>
+            <input type="number"
+                   id="commentRating"
+                   name="commentRating"
+                   min="1"
+                   max="5">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="commentText">Comment:</label><br>
+            <textarea id="commentText"
+                      name="commentText"
+                      rows="4"
+                      cols="40"
+                      required></textarea>
+        </div>
+
+        <br>
+
+        <button type="submit">Add Comment</button>
+    </form>
+
+    <!-- Later: site.js will validate these forms and send POST requests to the API -->
+    <script src="/js/site.js"></script>
+</body>
+</html>

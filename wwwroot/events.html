@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Listing</title>
+</head>
+<body>
+
+    <h1>Events Listing</h1>
+
+    <p>Browse upcoming events below. Click an event to view more details.</p>
+
+    <!-- Search / filter (API + AJAX later) -->
+    <label for="search">Search events:</label><br>
+    <input type="text" id="search" name="search" placeholder="Type to search...">
+
+    <hr>
+
+    <!-- Static example events (skeleton / fallback).
+         Later you will generate the list dynamically from the API into #events-container. -->
+    <!-- EVENT 1 -->
+    <a href="event-detail.html?id=1">
+        <h2>Tech Summit 2025</h2>
+        <img src="https://picsum.photos/600/400?random=1" alt="Tech conference audience" width="300">
+        <p><strong>Location:</strong> London</p>
+        <p><strong>Date:</strong> 12 February 2025</p>
+    </a>
+    <p><small>Image source: Picsum Photos (https://picsum.photos)</small></p>
+
+    <hr>
+
+    <!-- EVENT 2 -->
+    <a href="event-detail.html?id=2">
+        <h2>AI and Innovation Expo</h2>
+        <img src="https://picsum.photos/600/400?random=2" alt="Technology exhibition hall" width="300">
+        <p><strong>Location:</strong> Manchester</p>
+        <p><strong>Date:</strong> 5 March 2025</p>
+    </a>
+    <p><small>Image source: Picsum Photos (https://picsum.photos)</small></p>
+
+    <hr>
+
+    <!-- Container for API-generated events (for higher grade) -->
+    <div id="events-container">
+        <!-- site.js will later:
+             - fetch JSON from the API
+             - loop through events
+             - create elements and append them here -->
+    </div>
+
+    <!-- Site-wide JavaScript for dynamic loading / filtering later -->
+    <script src="/js/site.js"></script>
+</body>
+</html>

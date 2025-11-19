@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Detail</title>
+</head>
+<body>
+
+    <!-- Back to listing -->
+    <a href="events.html">Back to Events Listing</a>
+
+    <!-- Event title -->
+    <h1 id="event-title">Tech Summit 2025</h1>
+
+    <!-- Event metadata -->
+    <h2>Event Overview</h2>
+    <p><strong>Title:</strong> <span id="event-title-meta">Tech Summit 2025</span></p>
+    <p><strong>Date:</strong> <span id="event-date">12 February 2025</span></p>
+    <p><strong>Time:</strong> <span id="event-time">09:00 AM - 05:00 PM</span></p>
+    <p><strong>Location:</strong> <span id="event-location">London Conference Centre</span></p>
+    <p><strong>Category:</strong> <span id="event-category">Technology and Innovation</span></p>
+    <p><strong>Ticket Price:</strong> <span id="event-price">49.99 GBP</span></p>
+
+    <!-- Description -->
+    <h3>Description</h3>
+    <p id="event-description">
+        This is a placeholder description for the event. Later, this content
+        can be replaced with data loaded from the events API based on the id
+        in the query string (for example, event-detail.html?id=1).
+    </p>
+
+    <!-- Main image -->
+    <h2>Main Event Image</h2>
+    <img id="event-main-image"
+         src="https://picsum.photos/800/400?random=11"
+         alt="Main event image">
+    <p><small>Image source: Picsum Photos (https://picsum.photos)</small></p>
+
+    <hr>
+
+    <!-- Gallery -->
+    <h2>Event Image Gallery</h2>
+    <p>This gallery can later be animated (slideshow) using JavaScript.</p>
+
+    <div id="event-gallery">
+        <img src="https://picsum.photos/400/250?random=21" alt="Gallery image 1"><br><br>
+        <img src="https://picsum.photos/400/250?random=22" alt="Gallery image 2"><br><br>
+        <img src="https://picsum.photos/400/250?random=23" alt="Gallery image 3">
+    </div>
+
+    <hr>
+
+    <!-- Organiser details -->
+    <h2>Event Organiser</h2>
+    <p><strong>Name:</strong> <span id="organiser-name">FutureTech Events Ltd.</span></p>
+    <p><strong>Email:</strong> <span id="organiser-email">info@futuretechevents.com</span></p>
+    <p><strong>Phone:</strong> <span id="organiser-phone">+44 20 1234 5678</span></p>
+
+    <p id="organiser-description">
+        This is a placeholder description about the organiser. It can also be
+        replaced by organiser data from the API.
+    </p>
+
+    <hr>
+
+    <!-- Reviews / comments -->
+    <h2>Reviews and Comments</h2>
+    <div id="reviews">
+        <!-- Static demo review for now. Later JavaScript can inject real reviews. -->
+        <h3>Sample Reviewer</h3>
+        <p>Rating: 5 out of 5 - This is an example review for the event.</p>
+    </div>
+
+    <!-- Site-wide JS: later it can:
+         - read id from the URL
+         - fetch event detail from the API
+         - populate all the #event-* fields, organiser, reviews, gallery, etc. -->
+    <script src="/js/site.js"></script>
+</body>
+</html>
