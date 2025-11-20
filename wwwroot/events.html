@@ -1,56 +1,94 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events Listing</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5"
+          rel="stylesheet"
+          type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="/css/site.css" rel="stylesheet" />
+
+    <title>Qurra Central - Events</title>
 </head>
-<body>
+<body class="bg-base-100">
 
-    <h1>Events Listing</h1>
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-3xl font-bold">Upcoming Masjid Events</h1>
+            <a href="index.html" class="btn btn-ghost">Home</a>
+        </div>
 
-    <p>Browse upcoming events below. Click an event to view more details.</p>
+        <p class="mb-6 text-base-content/70">
+            Browse Qur'an recitation nights, duroos, and community events hosted at local masjids.
+            Click on an event to see full details.
+        </p>
 
-    <!-- Search / filter (API + AJAX later) -->
-    <label for="search">Search events:</label><br>
-    <input type="text" id="search" name="search" placeholder="Type to search...">
+        <!-- Search / filter (API + AJAX later) -->
+        <div class="mb-6">
+            <label for="search" class="block mb-2 font-medium">Search events</label>
+            <input type="text"
+                   id="search"
+                   name="search"
+                   placeholder="Search by masjid name, city or event title"
+                   class="input input-bordered w-full max-w-xl">
+        </div>
 
-    <hr>
+        <!-- Static example events (skeleton / fallback).
+             Later you will generate the list dynamically from the API into #events-container. -->
 
-    <!-- Static example events (skeleton / fallback).
-         Later you will generate the list dynamically from the API into #events-container. -->
-    <!-- EVENT 1 -->
-    <a href="event-detail.html?id=1">
-        <h2>Tech Summit 2025</h2>
-        <img src="https://picsum.photos/600/400?random=1" alt="Tech conference audience" width="300">
-        <p><strong>Location:</strong> London</p>
-        <p><strong>Date:</strong> 12 February 2025</p>
-    </a>
-    <p><small>Image source: Picsum Photos (https://picsum.photos)</small></p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <!-- EVENT 1 -->
+            <a href="event-detail.html?id=1" class="card bg-base-100 border border-gray-200 shadow hover:shadow-lg transition">
+                <figure>
+                    <img src="https://picsum.photos/800/400?random=10" alt="Masjid interior with Qur'an circle" class="w-full h-48 object-cover">
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Ramadan Night of Qur'an</h2>
+                    <p class="text-sm text-base-content/70">
+                        Masjid Bilal, Nottingham
+                    </p>
+                    <p><strong>Date:</strong> 12 March 2025</p>
+                    <p><strong>Reciter:</strong> Shaykh Ahmad Al-Qari</p>
+                    <div class="card-actions justify-end">
+                        <span class="badge badge-outline">Qiyam and Recitation</span>
+                    </div>
+                </div>
+            </a>
 
-    <hr>
+            <!-- EVENT 2 -->
+            <a href="event-detail.html?id=2" class="card bg-base-100 border border-gray-200 shadow hover:shadow-lg transition">
+                <figure>
+                    <img src="https://picsum.photos/800/400?random=11" alt="Masjid exterior at night" class="w-full h-48 object-cover">
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Weekly Juz Recitation Circle</h2>
+                    <p class="text-sm text-base-content/70">
+                        Masjid Noor, Birmingham
+                    </p>
+                    <p><strong>Date:</strong> Every Friday</p>
+                    <p><strong>Reciter:</strong> Local Huffaz Panel</p>
+                    <div class="card-actions justify-end">
+                        <span class="badge badge-outline">Hifz and Revision</span>
+                    </div>
+                </div>
+            </a>
+        </div>
 
-    <!-- EVENT 2 -->
-    <a href="event-detail.html?id=2">
-        <h2>AI and Innovation Expo</h2>
-        <img src="https://picsum.photos/600/400?random=2" alt="Technology exhibition hall" width="300">
-        <p><strong>Location:</strong> Manchester</p>
-        <p><strong>Date:</strong> 5 March 2025</p>
-    </a>
-    <p><small>Image source: Picsum Photos (https://picsum.photos)</small></p>
+        <p class="text-xs text-base-content/60 mb-4">
+            Image source for placeholders: Picsum Photos (https://picsum.photos)
+        </p>
 
-    <hr>
-
-
-    <!-- Container for API-generated events (for higher grade) -->
-    <div id="events-container">
-        <!-- site.js will later:
-             - fetch JSON from the API
-             - loop through events
-             - create elements and append them here -->
+        <!-- Container for API-generated events (for higher grade) -->
+        <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- site.js will later:
+                 - fetch JSON from the API
+                 - loop through events
+                 - create elements and append them here -->
+        </div>
     </div>
 
-    <!-- Site-wide JavaScript for dynamic loading / filtering later -->
     <script src="/js/site.js"></script>
 </body>
 </html>

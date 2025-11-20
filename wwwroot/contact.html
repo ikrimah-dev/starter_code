@@ -1,70 +1,89 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5"
+          rel="stylesheet"
+          type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="/css/site.css" rel="stylesheet" />
+
+    <title>Qurra Central - Contact</title>
 </head>
-<body>
+<body class="bg-base-100">
 
-    <h1>Contact Us</h1>
+    <div class="container mx-auto px-4 py-8 max-w-xl">
+        <h1 class="text-3xl font-bold mb-4 text-center">Contact Qurra Central</h1>
 
-    <p>
-        Please use the form below to contact the site administrator.
-        All fields are required.
-    </p>
+        <p class="mb-6 text-base-content/80 text-center">
+            Reach out if your masjid would like to add events, partner with Qurra Central,
+            or if you have any questions or feedback.
+        </p>
 
-    <form id="contact-form" action="#" method="post">
-        <!-- Full name -->
-        <div>
-            <label for="fullName">Full name:</label><br>
-            <input type="text"
-                   id="fullName"
-                   name="fullName"
-                   required>
+        <div class="card bg-base-100 border border-gray-200 shadow">
+            <div class="card-body">
+                <form id="contact-form" action="#" method="post" novalidate>
+                    <!-- Full name -->
+                    <div class="form-control mb-4">
+                        <label for="fullName" class="label">
+                            <span class="label-text font-medium">Full name</span>
+                        </label>
+                        <input type="text"
+                               id="fullName"
+                               name="fullName"
+                               class="input input-bordered w-full"
+                               required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-control mb-4">
+                        <label for="email" class="label">
+                            <span class="label-text font-medium">Email address</span>
+                        </label>
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               class="input input-bordered w-full"
+                               required>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-control mb-4">
+                        <label for="phone" class="label">
+                            <span class="label-text font-medium">Phone number</span>
+                        </label>
+                        <input type="tel"
+                               id="phone"
+                               name="phone"
+                               class="input input-bordered w-full"
+                               required>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-control mb-6">
+                        <label for="message" class="label">
+                            <span class="label-text font-medium">Message</span>
+                        </label>
+                        <textarea id="message"
+                                  name="message"
+                                  rows="5"
+                                  class="textarea textarea-bordered w-full"
+                                  required></textarea>
+                    </div>
+
+                    <!-- Submit button -->
+                    <div class="form-control">
+                        <button type="submit" class="btn btn-primary w-full">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
+    </div>
 
-        <br>
-
-        <!-- Email -->
-        <div>
-            <label for="email">Email address:</label><br>
-            <input type="email"
-                   id="email"
-                   name="email"
-                   required>
-        </div>
-
-        <br>
-
-        <!-- Phone -->
-        <div>
-            <label for="phone">Phone number:</label><br>
-            <input type="tel"
-                   id="phone"
-                   name="phone"
-                   required>
-        </div>
-
-        <br>
-
-        <!-- Message -->
-        <div>
-            <label for="message">Message:</label><br>
-            <textarea id="message"
-                      name="message"
-                      rows="5"
-                      cols="40"
-                      required></textarea>
-        </div>
-
-        <br>
-
-        <!-- Submit button -->
-        <button type="submit">Send Message</button>
-    </form>
-
-    <!-- Later: site.js can add regex validation for name, email, phone etc. -->
     <script src="/js/site.js"></script>
 </body>
 </html>

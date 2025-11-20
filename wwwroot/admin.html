@@ -1,196 +1,252 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Management</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5"
+          rel="stylesheet"
+          type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="/css/site.css" rel="stylesheet" />
+
+    <title>Qurra Central - Admin</title>
 </head>
-<body>
+<body class="bg-base-100">
 
-    <h1>Admin Management</h1>
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <h1 class="text-3xl font-bold mb-4 text-center">Qurra Central Admin</h1>
 
-    <p>
-        This page allows administrators to manage organisers, events,
-        and comments. For now these forms are static. Later, JavaScript
-        will validate the input and send POST requests to the API.
-    </p>
+        <p class="mb-8 text-base-content/80 text-center">
+            Use this page to create masjid organisers, add new events, and attach comments
+            to existing events. The forms will later send POST requests to the API.
+        </p>
 
-    <hr>
+        <!-- 1. Create new event organiser -->
+        <div class="card bg-base-100 border border-gray-200 shadow mb-8">
+            <div class="card-body">
+                <h2 class="card-title mb-2">Create New Masjid Organiser</h2>
+                <p class="text-sm text-base-content/70 mb-4">
+                    Add a new masjid or organising body that will be linked to events.
+                </p>
 
-    <!-- 1. Create new event organiser -->
-    <h2>Create New Event Organiser</h2>
+                <form id="create-organiser-form" action="#" method="post" novalidate>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="form-control">
+                            <label for="organiserName" class="label">
+                                <span class="label-text font-medium">Organiser name</span>
+                            </label>
+                            <input type="text"
+                                   id="organiserName"
+                                   name="organiserName"
+                                   class="input input-bordered w-full"
+                                   required>
+                        </div>
 
-    <form id="create-organiser-form" action="#" method="post">
-        <div>
-            <label for="organiserName">Organiser name:</label><br>
-            <input type="text"
-                   id="organiserName"
-                   name="organiserName"
-                   required>
+                        <div class="form-control">
+                            <label for="organiserEmail" class="label">
+                                <span class="label-text font-medium">Organiser email</span>
+                            </label>
+                            <input type="email"
+                                   id="organiserEmail"
+                                   name="organiserEmail"
+                                   class="input input-bordered w-full"
+                                   required>
+                        </div>
+
+                        <div class="form-control">
+                            <label for="organiserPhone" class="label">
+                                <span class="label-text font-medium">Organiser phone</span>
+                            </label>
+                            <input type="tel"
+                                   id="organiserPhone"
+                                   name="organiserPhone"
+                                   class="input input-bordered w-full">
+                        </div>
+
+                        <div class="form-control md:col-span-2">
+                            <label for="organiserDescription" class="label">
+                                <span class="label-text font-medium">Organiser description</span>
+                            </label>
+                            <textarea id="organiserDescription"
+                                      name="organiserDescription"
+                                      rows="3"
+                                      class="textarea textarea-bordered w-full"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-control mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            Create Organiser
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
 
-        <br>
+        <!-- 2. Create new event -->
+        <div class="card bg-base-100 border border-gray-200 shadow mb-8">
+            <div class="card-body">
+                <h2 class="card-title mb-2">Create New Event</h2>
+                <p class="text-sm text-base-content/70 mb-4">
+                    Link the event to a masjid organiser and specify the type of programme.
+                </p>
 
-        <div>
-            <label for="organiserEmail">Organiser email:</label><br>
-            <input type="email"
-                   id="organiserEmail"
-                   name="organiserEmail"
-                   required>
+                <form id="create-event-form" action="#" method="post" novalidate>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="form-control">
+                            <label for="eventTitle" class="label">
+                                <span class="label-text font-medium">Event title</span>
+                            </label>
+                            <input type="text"
+                                   id="eventTitle"
+                                   name="eventTitle"
+                                   class="input input-bordered w-full"
+                                   required>
+                        </div>
+
+                        <div class="form-control">
+                            <label for="eventDate" class="label">
+                                <span class="label-text font-medium">Event date</span>
+                            </label>
+                            <input type="date"
+                                   id="eventDate"
+                                   name="eventDate"
+                                   class="input input-bordered w-full"
+                                   required>
+                        </div>
+
+                        <div class="form-control">
+                            <label for="eventTime" class="label">
+                                <span class="label-text font-medium">Event time</span>
+                            </label>
+                            <input type="time"
+                                   id="eventTime"
+                                   name="eventTime"
+                                   class="input input-bordered w-full">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="eventLocation" class="label">
+                                <span class="label-text font-medium">Masjid name and city</span>
+                            </label>
+                            <input type="text"
+                                   id="eventLocation"
+                                   name="eventLocation"
+                                   class="input input-bordered w-full"
+                                   placeholder="e.g. Masjid Bilal, Nottingham"
+                                   required>
+                        </div>
+
+                        <div class="form-control">
+                            <label for="eventCategory" class="label">
+                                <span class="label-text font-medium">Category</span>
+                            </label>
+                            <input type="text"
+                                   id="eventCategory"
+                                   name="eventCategory"
+                                   class="input input-bordered w-full"
+                                   placeholder="Qiyam, Halaqah, Hifz circle">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="eventPrice" class="label">
+                                <span class="label-text font-medium">Ticket price (if any)</span>
+                            </label>
+                            <input type="number"
+                                   id="eventPrice"
+                                   name="eventPrice"
+                                   class="input input-bordered w-full"
+                                   step="0.01">
+                        </div>
+
+                        <div class="form-control md:col-span-2">
+                            <label for="eventOrganiserId" class="label">
+                                <span class="label-text font-medium">Organiser ID</span>
+                            </label>
+                            <input type="text"
+                                   id="eventOrganiserId"
+                                   name="eventOrganiserId"
+                                   class="input input-bordered w-full"
+                                   placeholder="ID from organisers list">
+                        </div>
+                    </div>
+
+                    <div class="form-control mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            Create Event
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
 
-        <br>
+        <!-- 3. Add new comment to existing event -->
+        <div class="card bg-base-100 border border-gray-200 shadow mb-8">
+            <div class="card-body">
+                <h2 class="card-title mb-2">Add Comment to Event</h2>
+                <p class="text-sm text-base-content/70 mb-4">
+                    Attach attendee feedback to an existing event using its event ID.
+                </p>
 
-        <div>
-            <label for="organiserPhone">Organiser phone:</label><br>
-            <input type="tel"
-                   id="organiserPhone"
-                   name="organiserPhone">
+                <form id="add-comment-form" action="#" method="post" novalidate>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="form-control">
+                            <label for="commentEventId" class="label">
+                                <span class="label-text font-medium">Event ID</span>
+                            </label>
+                            <input type="text"
+                                   id="commentEventId"
+                                   name="commentEventId"
+                                   class="input input-bordered w-full"
+                                   required>
+                        </div>
+
+                        <div class="form-control">
+                            <label for="commentAuthor" class="label">
+                                <span class="label-text font-medium">Attendee name</span>
+                            </label>
+                            <input type="text"
+                                   id="commentAuthor"
+                                   name="commentAuthor"
+                                   class="input input-bordered w-full"
+                                   required>
+                        </div>
+
+                        <div class="form-control">
+                            <label for="commentRating" class="label">
+                                <span class="label-text font-medium">Rating (1 to 5)</span>
+                            </label>
+                            <input type="number"
+                                   id="commentRating"
+                                   name="commentRating"
+                                   class="input input-bordered w-full"
+                                   min="1"
+                                   max="5">
+                        </div>
+
+                        <div class="form-control md:col-span-2">
+                            <label for="commentText" class="label">
+                                <span class="label-text font-medium">Comment</span>
+                            </label>
+                            <textarea id="commentText"
+                                      name="commentText"
+                                      rows="3"
+                                      class="textarea textarea-bordered w-full"
+                                      required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-control mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            Add Comment
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
+    </div>
 
-        <br>
-
-        <div>
-            <label for="organiserDescription">Organiser description:</label><br>
-            <textarea id="organiserDescription"
-                      name="organiserDescription"
-                      rows="4"
-                      cols="40"></textarea>
-        </div>
-
-        <br>
-
-        <button type="submit">Create Organiser</button>
-    </form>
-
-    <hr>
-
-    <!-- 2. Create new event -->
-    <h2>Create New Event</h2>
-
-    <form id="create-event-form" action="#" method="post">
-        <div>
-            <label for="eventTitle">Event title:</label><br>
-            <input type="text"
-                   id="eventTitle"
-                   name="eventTitle"
-                   required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="eventDate">Event date:</label><br>
-            <input type="date"
-                   id="eventDate"
-                   name="eventDate"
-                   required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="eventTime">Event time:</label><br>
-            <input type="time"
-                   id="eventTime"
-                   name="eventTime">
-        </div>
-
-        <br>
-
-        <div>
-            <label for="eventLocation">Location:</label><br>
-            <input type="text"
-                   id="eventLocation"
-                   name="eventLocation"
-                   required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="eventCategory">Category:</label><br>
-            <input type="text"
-                   id="eventCategory"
-                   name="eventCategory">
-        </div>
-
-        <br>
-
-        <div>
-            <label for="eventPrice">Ticket price:</label><br>
-            <input type="number"
-                   id="eventPrice"
-                   name="eventPrice"
-                   step="0.01">
-        </div>
-
-        <br>
-
-        <div>
-            <label for="eventOrganiserId">Organiser ID:</label><br>
-            <input type="text"
-                   id="eventOrganiserId"
-                   name="eventOrganiserId">
-        </div>
-
-        <br>
-
-        <button type="submit">Create Event</button>
-    </form>
-
-    <hr>
-
-    <!-- 3. Add new comment to existing event -->
-    <h2>Add New Comment To Existing Event</h2>
-
-    <form id="add-comment-form" action="#" method="post">
-        <div>
-            <label for="commentEventId">Event ID:</label><br>
-            <input type="text"
-                   id="commentEventId"
-                   name="commentEventId"
-                   required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="commentAuthor">Your name:</label><br>
-            <input type="text"
-                   id="commentAuthor"
-                   name="commentAuthor"
-                   required>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="commentRating">Rating (1 to 5):</label><br>
-            <input type="number"
-                   id="commentRating"
-                   name="commentRating"
-                   min="1"
-                   max="5">
-        </div>
-
-        <br>
-
-        <div>
-            <label for="commentText">Comment:</label><br>
-            <textarea id="commentText"
-                      name="commentText"
-                      rows="4"
-                      cols="40"
-                      required></textarea>
-        </div>
-
-        <br>
-
-        <button type="submit">Add Comment</button>
-    </form>
-
-    <!-- Later: site.js will validate these forms and send POST requests to the API -->
     <script src="/js/site.js"></script>
 </body>
 </html>
